@@ -2,10 +2,10 @@ FROM node:lts
 
 ### Copy Vue.js code
 WORKDIR /app
-COPY frontend frontend
+COPY telegram telegram
 
 ### Build Vue.js into plain HTML/CSS/JS
-WORKDIR /app/frontend
+WORKDIR /app/telegram
 RUN npm run build
 
 CMD ["npm", "start"]
