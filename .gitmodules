@@ -3,4 +3,4 @@
 	url = https://github.com/notherealmarco/overLinks-frontend.git
 [submodule "telegram"]
 	path = telegram
-	url = https://github.com/notherealmarco/overLinks-telegram
+	url = https://github.com/notherealmarco/overLinks-telegram.git
