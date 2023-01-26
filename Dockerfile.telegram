@@ -1,0 +1,11 @@
+FROM node:lts
+
+### Copy Vue.js code
+WORKDIR /app
+COPY frontend frontend
+
+### Build Vue.js into plain HTML/CSS/JS
+WORKDIR /app/frontend
+RUN npm run build
+
+CMD ["npm", "start"]

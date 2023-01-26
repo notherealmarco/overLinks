@@ -42,6 +42,7 @@ import (
 type AppDatabase interface {
 	GetLinks() (*[]structures.OverLink, error)
 	AddLink(*structures.OverLinkInput) error
+	DeleteLink(int64) error
 
 	Ping() error
 }

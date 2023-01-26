@@ -2,6 +2,7 @@ package api
 
 import (
 	"net/http"
+	"strings"
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/notherealmarco/overLinks/service/api/helpers"
@@ -23,6 +24,20 @@ func (rt *_router) postLink(w http.ResponseWriter, r *http.Request, ps httproute
 
 	if !helpers.DecodeJsonOrBadRequest(r.Body, w, &req, rt.baseLogger) {
 		return
+	}
+
+	if req.Type == "" {
+		if (strings.Contains(req.Link, "shorts")) {
+			req.Type = "Shorts"
+		} else if (strings.Contains(req.Link, "youtube")) {
+			req.Type = "YouTube"
+		} else if (strings.Contains(req.Link, "reel")) {
+			req.Type = "Reels"
+		} else if (strings.Contains(req.Link, "instagram")) {
+			req.Type = "Instagram"
+		} else {
+			req.Type = "Other"
+		}
 	}
 
 	// here we should do some validity checks on the input

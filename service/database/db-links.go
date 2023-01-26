@@ -28,3 +28,8 @@ func (db *appdbimpl) AddLink(link *structures.OverLinkInput) error {
 	_, err := db.c.Exec("INSERT INTO links (type, url, description) VALUES (?, ?, ?)", link.Type, link.Link, link.Description)
 	return err
 }
+
+func (db *appdbimpl) DeleteLink(id int64) error {
+	_, err := db.c.Exec("DELETE FROM links WHERE id=?", id)
+	return err
+}

@@ -10,6 +10,7 @@ func (rt *_router) Handler() http.Handler {
 	rt.router.GET("/", rt.getHelloWorld)
 	rt.router.GET("/links", rt.wrap(rt.getLinks))
 	rt.router.POST("/links", rt.wrap(rt.postLink))
+	rt.router.DELETE("/links/:id", rt.wrap(rt.deleteLink))
 
 	// Special routes
 	rt.router.GET("/liveness", rt.liveness)
